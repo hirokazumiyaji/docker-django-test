@@ -3,9 +3,16 @@ web:
   ports:
     - "8000:8000"
   links:
+    - mysql
     - redis
   volumes:
     - app:/app
+mysql:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
 redis:
   image: redis
   ports:
